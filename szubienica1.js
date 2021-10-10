@@ -1,26 +1,44 @@
+let dataBase = {
+	"words": [
+		  "sto dni do matury", 
+		  "Szachy", 
+		  "Rafał Pacześ", 
+		  "Czekolada",
+		  "Bez pracy nie ma kołaczy",
+		  "Kewin sam w domu",
+		  "ikea",
+		  "Wrocław",
+		  "Pszczółka Maja",
+		  "Krzywa Beziera"
+	  ],
+	"hints": [
+		  ["muzyka", " Debiutancki album studyjny polskiego rapera Maty. Wydawnictwo ukazało się 18 stycznia 2020 roku nakładem wytwórni muzycznej SBM Label."],
+		  ["Gry", "Gra planszowa, uznawana jako sport"],
+		  ["Znane osoby", "Jeden z czołowuch polskich standuperów, wydał książkę pt. 'Grube wióry'"],
+		  ["Jedzenie", "Lubi ją każdy, są jej różne rodzaje. Zawiera alergen"],
+		  ["Przysłowia", "Przysłowie mówiące że bez wysiłku nie ma efektów"],
+		  ["Film", "Tradycyyjnie co święta puszczany na Polsacie"],
+		  ["Sklepy", "Szwecki sklep meblowy"],
+		  ["Miasta", "Miasto wojewódzkie, słynie z tego że jest piękne"],
+		  ["Film", "Bajka dla dzieci, tytułowa postać była zwierzęciem"],
+		  ["Nauka", "Parametryczna krzywa powszechnie stosowana w programach do projektowania inżynierskiego CAD"]
+	 ]
+  };
 
+function getWord(index) {
+	return dataBase.words[index];
+}
 
+function getHint(index) {
+	return dataBase.hints[index];
+}
 
+let randomNumber = Math.floor(Math.random() * dataBase.words.length);
+var haslo = getWord(randomNumber);
+var hint = getHint(randomNumber);
 
-
-var baza = new Array(10);
-
- pozycja[1] = "sto dni do matury";
- pozycja[2] = "patointeligencja"; 
- pozycja[3] = "patoreakcja"; 
- pozycja[4] = "szafir"; 
- pozycja[5] = "szmata"; 
- pozycja[6] = "kiss cam"; 
- pozycja[7] = "ikea"; 
- pozycja[8] = "dwatysiacepierwszy" ; 
- pozycja[9] = "blok"; 
- pozycja[10] = "kurtz";
- 
-let randomNumber = 1; 
-randomNumber =  Math.floor(Math.random() * 10) + 1;
-
-var haslo = baza.pozycja[randomNumber] ;
 haslo = haslo.toUpperCase();
+
 
 var dlugosc = haslo.length;
 var ile_skuch = 0;
@@ -96,6 +114,9 @@ function start()
 	}
 	
 	document.getElementById("alfabet").innerHTML = tresc_diva;
+	document.getElementById("hint-category").innerHTML = hint[0];
+	document.getElementById("hint-description").innerHTML = hint[1];
+	
 	
 	
 	wypisz_haslo();
